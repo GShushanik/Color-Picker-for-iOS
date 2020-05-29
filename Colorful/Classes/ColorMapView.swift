@@ -114,8 +114,8 @@ internal class ColorMapView: UIView {
         colorMap.frame = mf
         colorMap.contents = ColorMapView.createColorMapImage(size: mf.size, model: model)
         let onePixel = 1 / UIScreen.main.scale
-        maskLayer.path = UIBezierPath(ovalIn: colorMap.bounds.insetBy(dx: -onePixel, dy: -onePixel)).cgPath
-        backgounrdLayer.path = UIBezierPath(ovalIn: mf.insetBy(dx: -borderWidth/2, dy: -borderWidth/2)).cgPath
+        maskLayer.path = UIBezierPath(roundedRect: colorMap.bounds.insetBy(dx: -onePixel, dy: -onePixel), cornerRadius: 0).cgPath
+        backgounrdLayer.path = UIBezierPath(roundedRect: mf.insetBy(dx: -borderWidth/2, dy: -borderWidth/2), cornerRadius: 0).cgPath
     }
     
     func set(brightness: CGFloat) {
